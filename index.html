@@ -1,0 +1,825 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Belhasa Projects LLC | Contracting & Construction — Dubai</title>
+<meta name="description" content="Belhasa Projects LLC — construction, fit-out, MEP and maintenance contracting in the UAE.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   1) BRAND SETTINGS — change colours here and the whole site follows
+   ========================================================= */
+:root{
+  --navy:#0e2740;
+  --navy-2:#163a5c;
+  --gold:#c8963e;
+  --gold-2:#e0b46a;
+  --ink:#1b2430;
+  --muted:#5b6675;
+  --line:#e3e7ec;
+  --bg:#ffffff;
+  --bg-soft:#f4f6f9;
+  --radius:14px;
+  --shadow:0 10px 30px rgba(14,39,64,.10);
+  --max:1180px;
+  --font:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --font-ar:"Cairo","Tahoma",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{overflow-x:clip;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+html[lang="ar"] body{font-family:var(--font-ar)}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.container{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:20px}
+section{padding-block:88px}
+.eyebrow{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+html[lang="ar"] .eyebrow{letter-spacing:0}
+h1,h2,h3{line-height:1.2;color:var(--navy)}
+h2{font-size:clamp(1.7rem,3.2vw,2.5rem);margin-bottom:14px}
+.lead{color:var(--muted);font-size:1.08rem;max-width:680px}
+.section-head{margin-bottom:48px}
+.section-head.center{text-align:center}
+.section-head.center .lead{margin-inline:auto}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-weight:600;transition:.25s}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-gold:hover{background:var(--gold-2);transform:translateY(-2px)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.55);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.12)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy-2)}
+
+/* =========================================================
+   2) HEADER & NAVIGATION
+   ========================================================= */
+.topbar{background:var(--navy);color:#cfd8e3;font-size:.85rem}
+.topbar .container{display:flex;justify-content:space-between;gap:16px;padding-block:8px;flex-wrap:wrap}
+.topbar a:hover{color:#fff}
+.topbar .tb-items{display:flex;gap:22px;flex-wrap:wrap}
+header.site{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid transparent;transition:.25s}
+header.site.scrolled{border-color:var(--line);box-shadow:0 4px 20px rgba(0,0,0,.05)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px;gap:20px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--navy);font-size:1.15rem;line-height:1.1}
+.logo small{display:block;font-weight:500;font-size:.72rem;color:var(--muted);letter-spacing:.08em}
+.logo-mark{width:42px;height:42px;border-radius:10px;background:var(--navy);display:grid;place-items:center;flex:none}
+.menu{display:flex;align-items:center;gap:4px;list-style:none}
+.menu > li{position:relative}
+.menu > li > a,.menu > li > button{display:flex;align-items:center;gap:6px;padding:10px 14px;border-radius:8px;font-weight:500;font-size:.95rem;color:var(--ink)}
+.menu > li > a:hover,.menu > li > button:hover,.menu a.active{color:var(--gold)}
+.caret{width:10px;height:10px;transition:.2s}
+.dropdown{position:absolute;top:calc(100% + 8px);inset-inline-start:0;min-width:250px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:8px;list-style:none;opacity:0;visibility:hidden;transform:translateY(8px);transition:.2s}
+.has-dd:hover .dropdown,.has-dd.open .dropdown{opacity:1;visibility:visible;transform:none}
+.has-dd:hover .caret,.has-dd.open .caret{transform:rotate(180deg)}
+.dropdown a{display:block;padding:10px 12px;border-radius:8px;font-size:.92rem}
+.dropdown a:hover{background:var(--bg-soft);color:var(--gold)}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.lang-btn{border:1.5px solid var(--line);border-radius:999px;padding:7px 14px;font-weight:700;font-size:.85rem;color:var(--navy)}
+.lang-btn:hover{border-color:var(--gold);color:var(--gold)}
+.burger{display:none;width:44px;height:44px;border-radius:10px;border:1.5px solid var(--line);place-items:center}
+.burger span,.burger span::before,.burger span::after{display:block;width:20px;height:2px;background:var(--navy);position:relative;transition:.25s}
+.burger span::before,.burger span::after{content:"";position:absolute;inset-inline-start:0}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.burger.active span{background:transparent}
+.burger.active span::before{top:0;transform:rotate(45deg)}
+.burger.active span::after{top:0;transform:rotate(-45deg)}
+
+/* =========================================================
+   3) HERO
+   ========================================================= */
+.hero{position:relative;color:#fff;padding-block:120px 110px;background:
+  linear-gradient(115deg,rgba(14,39,64,.96) 0%,rgba(14,39,64,.85) 55%,rgba(14,39,64,.55) 100%),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M0 80 L80 0 M-20 20 L20 -20 M60 100 L100 60' stroke='%23c8963e' stroke-opacity='.18' stroke-width='1.2'/%3E%3C/svg%3E"),
+  linear-gradient(160deg,#1d4a73,#0e2740);overflow:hidden}
+.hero::after{content:"";position:absolute;inset-inline-end:-120px;bottom:-140px;width:520px;height:520px;border:60px solid rgba(200,150,62,.12);border-radius:50%}
+.hero .container{position:relative;z-index:1}
+.hero h1{color:#fff;font-size:clamp(2.2rem,5.2vw,3.9rem);max-width:820px;margin-block:8px 20px;font-weight:800}
+.hero h1 em{font-style:normal;color:var(--gold-2)}
+.hero p{font-size:1.15rem;color:#d7e0ea;max-width:620px;margin-bottom:34px}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-strip{margin-top:70px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.14);border-radius:var(--radius);overflow:hidden}
+.hero-strip div{background:rgba(14,39,64,.55);padding:22px;backdrop-filter:blur(4px)}
+.hero-strip b{display:block;color:var(--gold-2);font-size:1.05rem;margin-bottom:4px}
+.hero-strip span{font-size:.9rem;color:#c3cfdc}
+
+/* =========================================================
+   4) ABOUT
+   ========================================================= */
+.about-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}
+.about-visual{position:relative;aspect-ratio:4/4.2;border-radius:20px;overflow:hidden;background:linear-gradient(150deg,var(--navy-2),var(--navy))}
+.about-visual svg{position:absolute;inset:0;width:100%;height:100%}
+.about-badge{position:absolute;inset-inline-start:24px;bottom:24px;background:#fff;border-radius:14px;padding:18px 22px;box-shadow:var(--shadow);max-width:250px}
+.about-badge b{color:var(--navy);display:block;font-size:1.05rem}
+.about-badge span{color:var(--muted);font-size:.88rem}
+.checks{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 20px;margin-block:26px 32px}
+.checks li{display:flex;gap:10px;align-items:flex-start;font-weight:500}
+.checks li::before{content:"";flex:none;width:22px;height:22px;margin-top:2px;border-radius:50%;background:var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") center/14px no-repeat}
+.tabs{display:flex;gap:6px;border-bottom:1px solid var(--line);margin-top:8px}
+.tab{padding:10px 16px;font-weight:600;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab.active{color:var(--navy);border-color:var(--gold)}
+.tab-panel{display:none;padding-top:16px;color:var(--muted)}
+.tab-panel.active{display:block}
+
+/* =========================================================
+   5) SERVICES
+   ========================================================= */
+.bg-soft{background:var(--bg-soft)}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.svc{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;transition:.25s;display:flex;flex-direction:column}
+.svc:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:transparent}
+.svc-icon{width:56px;height:56px;border-radius:12px;background:rgba(200,150,62,.12);display:grid;place-items:center;margin-bottom:20px}
+.svc-icon svg{width:28px;height:28px;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.svc h3{font-size:1.2rem;margin-bottom:10px}
+.svc p{color:var(--muted);font-size:.96rem;flex:1}
+.svc .more{margin-top:18px;font-weight:600;color:var(--navy);display:inline-flex;gap:8px;align-items:center;align-self:flex-start}
+.svc .more:hover{color:var(--gold)}
+html[dir="rtl"] .arrow{transform:scaleX(-1)}
+
+/* =========================================================
+   6) PROCESS
+   ========================================================= */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:s}
+.step{position:relative;padding-top:64px}
+.step::before{counter-increment:s;content:"0" counter(s);position:absolute;top:0;inset-inline-start:0;font-size:2.6rem;font-weight:800;color:var(--gold);opacity:.35;line-height:1}
+.step::after{content:"";position:absolute;top:22px;inset-inline-start:76px;inset-inline-end:0;height:2px;background:repeating-linear-gradient(90deg,var(--line) 0 8px,transparent 8px 14px)}
+.step:last-child::after{display:none}
+.step h3{font-size:1.1rem;margin-bottom:8px}
+.step p{color:var(--muted);font-size:.95rem}
+
+/* =========================================================
+   7) PROJECTS
+   ========================================================= */
+.filters{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:34px}
+.filter{padding:9px 20px;border-radius:999px;border:1.5px solid var(--line);font-weight:600;font-size:.92rem;color:var(--muted);background:#fff;transition:.2s}
+.filter:hover{border-color:var(--gold);color:var(--gold)}
+.filter.active{background:var(--navy);border-color:var(--navy);color:#fff}
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.proj{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3;cursor:pointer;background:var(--navy);transition:opacity .3s,transform .3s}
+.proj.hide{display:none}
+.proj .art{position:absolute;inset:0;transition:transform .5s}
+.proj:hover .art{transform:scale(1.06)}
+.proj .cap{position:absolute;inset:auto 0 0 0;padding:22px;color:#fff;background:linear-gradient(transparent,rgba(8,22,38,.92))}
+.proj .cap small{color:var(--gold-2);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:.72rem}
+.proj .cap h3{color:#fff;font-size:1.08rem;margin-top:4px}
+.sample-tag{position:absolute;top:12px;inset-inline-end:12px;background:rgba(255,255,255,.9);color:var(--navy);font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:999px}
+
+/* Lightbox / modal */
+.modal{position:fixed;inset:0;z-index:100;background:rgba(6,16,28,.78);display:none;align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}
+.modal-box{background:#fff;border-radius:18px;max-width:760px;width:100%;max-height:90vh;overflow:auto;position:relative;animation:pop .25s ease}
+@keyframes pop{from{transform:scale(.95);opacity:0}}
+.modal-art{aspect-ratio:16/8;position:relative;background:var(--navy)}
+.modal-body{padding:28px}
+.modal-body h3{font-size:1.4rem;margin-bottom:10px}
+.modal-body p{color:var(--muted)}
+.modal-close{position:absolute;top:12px;inset-inline-end:12px;width:40px;height:40px;border-radius:50%;background:#fff;box-shadow:var(--shadow);font-size:1.4rem;line-height:1;z-index:2}
+.meta{display:flex;gap:24px;flex-wrap:wrap;margin-top:18px;padding-top:18px;border-top:1px solid var(--line);font-size:.9rem}
+.meta b{display:block;color:var(--navy)}
+
+/* =========================================================
+   8) WHY US / CTA BAND
+   ========================================================= */
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.why div{padding:26px;border-radius:var(--radius);background:#fff;border:1px solid var(--line)}
+.why h3{font-size:1.05rem;margin-block:12px 6px}
+.why p{color:var(--muted);font-size:.93rem}
+.why .dot{width:12px;height:12px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 6px rgba(200,150,62,.18)}
+.band{background:linear-gradient(120deg,var(--navy),var(--navy-2));color:#fff;border-radius:22px;padding:56px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+.band h2{color:#fff;margin:0}
+.band p{color:#c9d4e0;margin-top:8px}
+
+/* =========================================================
+   9) FAQ (accordion)
+   ========================================================= */
+.faq{max-width:820px;margin-inline:auto}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-weight:600;font-size:1.04rem;color:var(--navy);text-align:start}
+.faq-q .plus{flex:none;width:28px;height:28px;border-radius:50%;border:1.5px solid var(--line);position:relative;transition:.25s}
+.faq-q .plus::before,.faq-q .plus::after{content:"";position:absolute;top:50%;left:50%;width:12px;height:2px;background:var(--gold);transform:translate(-50%,-50%)}
+.faq-q .plus::after{transform:translate(-50%,-50%) rotate(90deg);transition:.25s}
+.faq-item.open .plus::after{transform:translate(-50%,-50%) rotate(0)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;color:var(--muted)}
+.faq-a p{padding-bottom:22px}
+
+/* =========================================================
+   10) CONTACT
+   ========================================================= */
+.contact-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:40px}
+.info-card{background:var(--navy);color:#d4dde7;border-radius:20px;padding:38px}
+.info-card h3{color:#fff;font-size:1.35rem;margin-bottom:10px}
+.info-row{display:flex;gap:16px;margin-top:26px}
+.info-row .ic{flex:none;width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,.08);display:grid;place-items:center}
+.info-row .ic svg{width:20px;height:20px;stroke:var(--gold-2);fill:none;stroke-width:1.8}
+.info-row b{color:#fff;display:block;font-size:.95rem}
+.info-row a:hover{color:var(--gold-2)}
+form.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:38px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.field label{font-weight:600;font-size:.88rem;color:var(--navy)}
+.field input,.field select,.field textarea{font:inherit;padding:13px 14px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);transition:.2s;width:100%}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 4px rgba(200,150,62,.15)}
+.field.err input,.field.err textarea,.field.err select{border-color:#c0392b}
+.field .msg{color:#c0392b;font-size:.8rem;min-height:1em}
+.form-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn-wa{background:#1f9d55;color:#fff}
+.btn-wa:hover{background:#1a8a4a}
+.form-note{font-size:.82rem;color:var(--muted);margin-top:12px}
+
+/* =========================================================
+   11) FOOTER
+   ========================================================= */
+footer{background:#0a1d30;color:#9fb0c2;padding-top:70px;font-size:.93rem}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px;padding-bottom:50px}
+footer h4{color:#fff;font-size:1rem;margin-bottom:16px}
+footer ul{list-style:none;display:grid;gap:10px}
+footer a:hover{color:var(--gold-2)}
+.foot .logo{color:#fff}
+.foot .logo small{color:#8ea1b5}
+.copy{border-top:1px solid rgba(255,255,255,.08);padding-block:22px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.85rem}
+
+/* Back to top + toast */
+.to-top{position:fixed;bottom:22px;inset-inline-end:22px;width:48px;height:48px;border-radius:50%;background:var(--gold);color:#fff;display:grid;place-items:center;box-shadow:var(--shadow);opacity:0;visibility:hidden;transform:translateY(10px);transition:.25s;z-index:40}
+.to-top.show{opacity:1;visibility:visible;transform:none}
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,120px);background:var(--navy);color:#fff;padding:14px 22px;border-radius:12px;box-shadow:var(--shadow);transition:.35s;z-index:120;max-width:calc(100% - 32px)}
+.toast.show{transform:translate(-50%,0)}
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+
+/* =========================================================
+   12) RESPONSIVE
+   ========================================================= */
+@media (max-width:1024px){
+  .services,.projects{grid-template-columns:repeat(2,1fr)}
+  .why{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .step::after{display:none}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+  .burger{display:grid}
+  .menu{position:fixed;top:var(--menu-top,112px);visibility:hidden;inset-inline:0;bottom:0;background:#fff;flex-direction:column;align-items:stretch;padding:16px 20px 40px;gap:0;overflow-y:auto;transform:translateX(100%);transition:transform .3s;border-top:1px solid var(--line)}
+  html[dir="rtl"] .menu{transform:translateX(-100%)}
+  .menu.open,html[dir="rtl"] .menu.open{transform:none;visibility:visible}
+  .menu > li{border-bottom:1px solid var(--line)}
+  .menu > li > a,.menu > li > button{padding:16px 4px;width:100%;justify-content:space-between;font-size:1.02rem}
+  .dropdown{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;padding:0 0 10px 0;display:none;min-width:0}
+  .has-dd:hover .dropdown{display:none}
+  .has-dd.open .dropdown{display:block}
+  .about-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .hero-strip{grid-template-columns:repeat(2,1fr)}
+  .nav-cta{display:none}
+}
+@media (max-width:600px){
+  section{padding-block:64px}
+  .services,.projects,.why,.steps,.grid-2,.checks{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr}
+  .band{padding:36px 26px}
+  form.card,.info-card{padding:26px}
+  .hero{padding-block:80px 70px}
+  .topbar .hide-sm{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR (edit phone / email / hours here) ============ -->
+<div class="topbar">
+  <div class="container">
+    <div class="tb-items">
+      <a href="tel:+97140000000">☎ <span id="tb-phone" dir="ltr">+971 4 000 0000</span></a>
+      <a href="mailto:info@example.ae" class="hide-sm">✉ <span id="tb-email">info@example.ae</span></a>
+    </div>
+    <div class="tb-items"><span data-i18n="tb.hours">Mon – Sat: 8:00 AM – 6:00 PM</span></div>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="site" id="header">
+  <div class="container nav">
+    <a href="#home" class="logo" aria-label="Belhasa Projects home">
+      <span class="logo-mark">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 21V10l9-6 9 6v11" stroke="#e0b46a" stroke-width="2" stroke-linejoin="round"/><path d="M9 21v-6h6v6" stroke="#fff" stroke-width="2"/></svg>
+      </span>
+      <span><span data-i18n="brand">Belhasa Projects</span><small>L.L.C · DUBAI</small></span>
+    </a>
+
+    <ul class="menu" id="menu">
+      <li><a href="#home" class="active" data-i18n="nav.home">Home</a></li>
+      <li><a href="#about" data-i18n="nav.about">About</a></li>
+      <li class="has-dd">
+        <button type="button" aria-expanded="false"><span data-i18n="nav.services">Services</span>
+          <svg class="caret" viewBox="0 0 10 10"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+        </button>
+        <ul class="dropdown">
+          <li><a href="#services" data-svc="0" data-i18n="s1.t">Civil & Structural Works</a></li>
+          <li><a href="#services" data-svc="1" data-i18n="s2.t">MEP Contracting</a></li>
+          <li><a href="#services" data-svc="2" data-i18n="s3.t">Interior Fit-Out</a></li>
+          <li><a href="#services" data-svc="3" data-i18n="s4.t">Project Management</a></li>
+          <li><a href="#services" data-svc="4" data-i18n="s5.t">Plant & Equipment</a></li>
+          <li><a href="#services" data-svc="5" data-i18n="s6.t">Maintenance Services</a></li>
+        </ul>
+      </li>
+      <li><a href="#process" data-i18n="nav.process">Our Process</a></li>
+      <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+      <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="lang-btn" id="langBtn" type="button" aria-label="Switch language">العربية</button>
+      <a href="#contact" class="btn btn-navy nav-cta" style="padding:10px 20px" data-i18n="nav.quote">Get a Quote</a>
+      <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="container">
+    <span class="eyebrow" data-i18n="hero.eye">Contracting · Construction · Fit-Out</span>
+    <h1 data-i18n-html="hero.h">Building the UAE with <em>precision</em>, safety and trust.</h1>
+    <p data-i18n="hero.p">Belhasa Projects LLC delivers civil, MEP and fit-out works for commercial, residential and industrial clients — on schedule, on budget and to specification.</p>
+    <div class="cta">
+      <a href="#contact" class="btn btn-gold"><span data-i18n="hero.c1">Request a Quote</span> <span class="arrow">→</span></a>
+      <a href="#projects" class="btn btn-ghost" data-i18n="hero.c2">View Our Work</a>
+    </div>
+    <div class="hero-strip">
+      <div><b data-i18n="hs1.b">Quality</b><span data-i18n="hs1.s">Work delivered to approved specifications</span></div>
+      <div><b data-i18n="hs2.b">Safety</b><span data-i18n="hs2.s">HSE-first culture on every site</span></div>
+      <div><b data-i18n="hs3.b">Delivery</b><span data-i18n="hs3.s">Clear programmes and reporting</span></div>
+      <div><b data-i18n="hs4.b">Value</b><span data-i18n="hs4.s">Transparent, competitive pricing</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="container about-grid">
+    <div class="about-visual reveal">
+      <svg viewBox="0 0 400 420" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <g stroke="#e0b46a" stroke-opacity=".5" fill="none" stroke-width="1.5">
+          <rect x="60" y="120" width="90" height="300"/><rect x="170" y="60" width="110" height="360"/><rect x="300" y="170" width="80" height="250"/>
+          <path d="M170 60 L225 20 L280 60"/>
+        </g>
+        <g fill="#e0b46a" fill-opacity=".22">
+          <rect x="75" y="140" width="22" height="16"/><rect x="113" y="140" width="22" height="16"/><rect x="75" y="175" width="22" height="16"/><rect x="113" y="210" width="22" height="16"/>
+          <rect x="190" y="85" width="28" height="18"/><rect x="232" y="85" width="28" height="18"/><rect x="190" y="125" width="28" height="18"/><rect x="232" y="165" width="28" height="18"/><rect x="190" y="205" width="28" height="18"/>
+          <rect x="315" y="190" width="20" height="14"/><rect x="345" y="220" width="20" height="14"/>
+        </g>
+        <path d="M30 40 L30 420 M30 40 L200 40 M30 40 L80 90" stroke="#fff" stroke-opacity=".35" stroke-width="3" fill="none"/>
+        <path d="M180 40 L180 70" stroke="#fff" stroke-opacity=".35" stroke-width="2"/>
+      </svg>
+      <div class="about-badge"><b data-i18n="ab.b">Licensed UAE Contractor</b><span data-i18n="ab.s">Serving clients across the Emirates</span></div>
+    </div>
+    <div class="reveal">
+      <span class="eyebrow" data-i18n="about.eye">About Us</span>
+      <h2 data-i18n="about.h">A contracting partner you can rely on from design to handover</h2>
+      <p class="lead" data-i18n="about.p">We combine experienced site teams, our own plant and equipment, and disciplined project controls to deliver projects that meet our clients' quality, cost and time expectations.</p>
+      <ul class="checks">
+        <li data-i18n="c1">Qualified engineers & site teams</li>
+        <li data-i18n="c2">Own fleet of plant & machinery</li>
+        <li data-i18n="c3">Strict HSE & QA/QC procedures</li>
+        <li data-i18n="c4">Transparent cost reporting</li>
+      </ul>
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-tab="0" data-i18n="tab1">Mission</button>
+        <button class="tab" data-tab="1" data-i18n="tab2">Vision</button>
+        <button class="tab" data-tab="2" data-i18n="tab3">Values</button>
+      </div>
+      <div class="tab-panel active" data-i18n="tp1">To deliver safe, high-quality construction projects that create lasting value for our clients, people and community.</div>
+      <div class="tab-panel" data-i18n="tp2">To be a trusted name in UAE contracting, known for reliability, integrity and engineering excellence.</div>
+      <div class="tab-panel" data-i18n="tp3">Safety first · Integrity · Quality · Accountability · Teamwork.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services" class="bg-soft">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow" data-i18n="svc.eye">What We Do</span>
+      <h2 data-i18n="svc.h">Integrated contracting services</h2>
+      <p class="lead" data-i18n="svc.p">One accountable contractor covering every stage of your project.</p>
+    </div>
+    <div class="services" id="svcGrid">
+      <!-- Service cards are generated from the SERVICES list in the script below -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section id="process">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="pr.eye">How We Work</span>
+      <h2 data-i18n="pr.h">A clear process, from enquiry to handover</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><h3 data-i18n="st1.t">Consultation</h3><p data-i18n="st1.p">We review your drawings, scope and requirements, and visit the site.</p></div>
+      <div class="step reveal"><h3 data-i18n="st2.t">Proposal & Costing</h3><p data-i18n="st2.p">A detailed, itemised quotation with programme and method statement.</p></div>
+      <div class="step reveal"><h3 data-i18n="st3.t">Execution</h3><p data-i18n="st3.p">Mobilisation, construction and regular progress reports with full HSE control.</p></div>
+      <div class="step reveal"><h3 data-i18n="st4.t">Handover & Support</h3><p data-i18n="st4.p">Testing, snagging, documentation and after-handover maintenance.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section id="projects" class="bg-soft">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow" data-i18n="pj.eye">Portfolio</span>
+      <h2 data-i18n="pj.h">Selected projects</h2>
+      <p class="lead" data-i18n="pj.p">Click a project to see details. Filter by sector.</p>
+    </div>
+    <div class="filters" id="filters">
+      <button class="filter active" data-f="all" data-i18n="f.all">All</button>
+      <button class="filter" data-f="commercial" data-i18n="f.com">Commercial</button>
+      <button class="filter" data-f="residential" data-i18n="f.res">Residential</button>
+      <button class="filter" data-f="industrial" data-i18n="f.ind">Industrial</button>
+      <button class="filter" data-f="infrastructure" data-i18n="f.inf">Infrastructure</button>
+    </div>
+    <div class="projects" id="projGrid">
+      <!-- Project cards are generated from the PROJECTS list in the script below -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY US + CTA ============ -->
+<section id="why">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow" data-i18n="wy.eye">Why Choose Us</span>
+      <h2 data-i18n="wy.h">What our clients get</h2>
+    </div>
+    <div class="why">
+      <div class="reveal"><span class="dot"></span><h3 data-i18n="w1.t">Single point of responsibility</h3><p data-i18n="w1.p">Civil, MEP and fit-out under one contract.</p></div>
+      <div class="reveal"><span class="dot"></span><h3 data-i18n="w2.t">Own equipment</h3><p data-i18n="w2.p">Less dependence on hire, better control of schedule.</p></div>
+      <div class="reveal"><span class="dot"></span><h3 data-i18n="w3.t">Financial discipline</h3><p data-i18n="w3.p">Clear BOQs, variations tracking and honest reporting.</p></div>
+      <div class="reveal"><span class="dot"></span><h3 data-i18n="w4.t">Safety culture</h3><p data-i18n="w4.p">Toolbox talks, permits and inspections every day.</p></div>
+    </div>
+    <div class="band reveal" style="margin-top:56px">
+      <div><h2 data-i18n="band.h">Have a project in mind?</h2><p data-i18n="band.p">Send us your drawings or scope — we'll respond with a clear proposal.</p></div>
+      <a href="#contact" class="btn btn-gold"><span data-i18n="band.c">Start the conversation</span> <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="bg-soft">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow" data-i18n="fq.eye">FAQ</span>
+      <h2 data-i18n="fq.h">Frequently asked questions</h2>
+    </div>
+    <div class="faq" id="faqList">
+      <div class="faq-item"><button class="faq-q" type="button"><span data-i18n="q1">Which emirates do you work in?</span><span class="plus"></span></button><div class="faq-a"><p data-i18n="a1">We are based in Dubai and take on projects across the UAE. Contact us with your site location to confirm.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button"><span data-i18n="q2">How do I get a quotation?</span><span class="plus"></span></button><div class="faq-a"><p data-i18n="a2">Use the contact form below or WhatsApp us with your drawings, BOQ or scope. We usually arrange a site visit before pricing.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button"><span data-i18n="q3">Do you handle authority approvals?</span><span class="plus"></span></button><div class="faq-a"><p data-i18n="a3">Yes — we can coordinate the required approvals with the relevant authorities as part of the project scope.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button"><span data-i18n="q4">Do you offer maintenance after handover?</span><span class="plus"></span></button><div class="faq-a"><p data-i18n="a4">Yes. We offer defects-liability support and planned maintenance contracts.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="ct.eye">Contact</span>
+      <h2 data-i18n="ct.h">Let's discuss your project</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="info-card reveal">
+        <h3 data-i18n="ci.h">Belhasa Projects LLC</h3>
+        <p data-i18n="ci.p">Reach our team directly or send the form — we reply within one business day.</p>
+        <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><div><b data-i18n="ci.addr">Address</b><span id="c-addr" data-i18n="ci.addrv">P.O. Box 00000, Dubai, United Arab Emirates</span></div></div>
+        <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span><div><b data-i18n="ci.ph">Phone</b><a href="tel:+97140000000" dir="ltr">+971 4 000 0000</a></div></div>
+        <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><div><b data-i18n="ci.em">Email</b><a href="mailto:info@example.ae">info@example.ae</a></div></div>
+        <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><b data-i18n="ci.hr">Working hours</b><span data-i18n="tb.hours">Mon – Sat: 8:00 AM – 6:00 PM</span></div></div>
+      </div>
+
+      <form class="card reveal" id="contactForm" novalidate>
+        <div class="grid-2">
+          <div class="field"><label for="f-name" data-i18n="fm.name">Full name *</label><input id="f-name" name="name" autocomplete="name"><span class="msg"></span></div>
+          <div class="field"><label for="f-company" data-i18n="fm.company">Company</label><input id="f-company" name="company" autocomplete="organization"><span class="msg"></span></div>
+        </div>
+        <div class="grid-2">
+          <div class="field"><label for="f-email" data-i18n="fm.email">Email *</label><input id="f-email" name="email" type="email" autocomplete="email"><span class="msg"></span></div>
+          <div class="field"><label for="f-phone" data-i18n="fm.phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"><span class="msg"></span></div>
+        </div>
+        <div class="field"><label for="f-service" data-i18n="fm.service">Service required</label>
+          <select id="f-service" name="service"></select><span class="msg"></span></div>
+        <div class="field"><label for="f-msg" data-i18n="fm.msg">Project details *</label><textarea id="f-msg" name="message" rows="5"></textarea><span class="msg"></span></div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-gold" data-i18n="fm.send">Send by Email</button>
+          <button type="button" class="btn btn-wa" id="waBtn" data-i18n="fm.wa">Send via WhatsApp</button>
+        </div>
+        <p class="form-note" data-i18n="fm.note">No paid form service needed: “Send by Email” opens your email app with the message ready; WhatsApp opens a chat with the details filled in.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container foot">
+    <div>
+      <a href="#home" class="logo"><span class="logo-mark"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 21V10l9-6 9 6v11" stroke="#e0b46a" stroke-width="2" stroke-linejoin="round"/><path d="M9 21v-6h6v6" stroke="#fff" stroke-width="2"/></svg></span><span><span data-i18n="brand">Belhasa Projects</span><small>L.L.C · DUBAI</small></span></a>
+      <p style="margin-top:16px;max-width:320px" data-i18n="ft.p">Civil, MEP and fit-out contracting across the United Arab Emirates.</p>
+    </div>
+    <div><h4 data-i18n="ft.c">Company</h4><ul><li><a href="#about" data-i18n="nav.about">About</a></li><li><a href="#process" data-i18n="nav.process">Our Process</a></li><li><a href="#projects" data-i18n="nav.projects">Projects</a></li><li><a href="#faq" data-i18n="nav.faq">FAQ</a></li></ul></div>
+    <div><h4 data-i18n="nav.services">Services</h4><ul id="footSvc"></ul></div>
+    <div><h4 data-i18n="nav.contact">Contact</h4><ul><li dir="ltr" style="text-align:start">+971 4 000 0000</li><li>info@example.ae</li><li data-i18n="ft.city">Dubai, UAE</li></ul></div>
+  </div>
+  <div class="container copy">
+    <span>© <span id="year"></span> <span data-i18n="ft.rights">Belhasa Projects LLC. All rights reserved.</span></span>
+    <a href="#home" data-i18n="ft.top">Back to top ↑</a>
+  </div>
+</footer>
+
+<!-- Project / service details modal -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="modal-box">
+    <button class="modal-close" id="mClose" aria-label="Close">×</button>
+    <div class="modal-art" id="mArt"></div>
+    <div class="modal-body">
+      <small class="eyebrow" id="mCat"></small>
+      <h3 id="mTitle"></h3>
+      <p id="mDesc"></p>
+      <div class="meta" id="mMeta"></div>
+    </div>
+  </div>
+</div>
+
+<button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+<div class="toast" id="toast"></div>
+
+<script>
+/* =========================================================
+   SITE SETTINGS — edit these values (or ask Claude to)
+   ========================================================= */
+const SETTINGS = {
+  email: "info@example.ae",          // where the contact form sends
+  whatsapp: "971500000000",          // WhatsApp number, digits only, with country code
+};
+
+/* SERVICES — each one becomes a card, a dropdown link, a footer link and a form option */
+const SERVICES = [
+  { icon:"M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6",
+    en:{t:"Civil & Structural Works", p:"Excavation, foundations, concrete frames, blockwork and external works for buildings and infrastructure.", d:"Full civil scope including shoring, piling coordination, RC structures, masonry, waterproofing, roads, paving and drainage."},
+    ar:{t:"الأعمال المدنية والإنشائية", p:"الحفر والأساسات والهياكل الخرسانية والطابوق والأعمال الخارجية للمباني والبنية التحتية.", d:"نطاق مدني كامل يشمل التدعيم وتنسيق الخوازيق والهياكل الخرسانية والبناء والعزل والطرق والرصف والصرف."}},
+  { icon:"M13 2L4 14h7l-1 8 9-12h-7l1-8z",
+    en:{t:"MEP Contracting", p:"Mechanical, electrical and plumbing installation, testing and commissioning.", d:"HVAC, power and lighting, low-current systems, plumbing and drainage, fire fighting and fire alarm — installed, tested and commissioned."},
+    ar:{t:"أعمال الكهروميكانيك", p:"تركيب واختبار وتشغيل الأنظمة الميكانيكية والكهربائية والسباكة.", d:"التكييف والكهرباء والإنارة وأنظمة التيار الخفيف والسباكة والصرف ومكافحة وإنذار الحريق — تركيب واختبار وتشغيل."}},
+  { icon:"M4 20V10l8-6 8 6v10M4 14h16M10 20v-6",
+    en:{t:"Interior Fit-Out", p:"Turnkey fit-out for offices, retail and residential spaces.", d:"Partitions, ceilings, flooring, joinery, finishes and furniture coordination, delivered to design intent."},
+    ar:{t:"التشطيبات الداخلية", p:"تشطيبات متكاملة للمكاتب والمحلات والوحدات السكنية.", d:"القواطع والأسقف والأرضيات والنجارة والتشطيبات وتنسيق الأثاث وفق التصميم المعتمد."}},
+  { icon:"M9 11l3 3 8-8M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9",
+    en:{t:"Project Management", p:"Planning, cost control and coordination that keep projects on track.", d:"Programming, procurement, subcontractor management, cost reporting and quality control from start to handover."},
+    ar:{t:"إدارة المشاريع", p:"التخطيط وضبط التكاليف والتنسيق للحفاظ على سير المشروع.", d:"الجدولة والمشتريات وإدارة مقاولي الباطن وتقارير التكلفة ومراقبة الجودة من البداية حتى التسليم."}},
+  { icon:"M2 17h13l3-5h4v5h-2M5 17a2 2 0 1 0 4 0M15 17a2 2 0 1 0 4 0M6 12V7h6l3 5",
+    en:{t:"Plant & Equipment", p:"Own fleet of vehicles and machinery supporting our sites.", d:"Earthmoving equipment, transport vehicles and site machinery, maintained in-house for availability and safety."},
+    ar:{t:"المعدات والآليات", p:"أسطول خاص من المركبات والآليات لدعم مواقعنا.", d:"معدات تحريك التربة ومركبات النقل وآليات الموقع، تتم صيانتها داخلياً لضمان الجاهزية والسلامة."}},
+  { icon:"M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.5-.5-.5-2.5z",
+    en:{t:"Maintenance Services", p:"Planned and reactive maintenance for buildings and facilities.", d:"Preventive maintenance programmes, reactive call-outs, minor works and defects rectification."},
+    ar:{t:"خدمات الصيانة", p:"صيانة دورية وطارئة للمباني والمنشآت.", d:"برامج الصيانة الوقائية والاستجابة للأعطال والأعمال الصغيرة ومعالجة العيوب."}},
+];
+
+/* PROJECTS — SAMPLE entries. Replace with your real projects (title, sector, location, year, scope).
+   Set sample:false once a project is real to remove the "Sample" tag. */
+const PROJECTS = [
+  { cat:"commercial", sample:true, hue:[205,35], year:"—", en:{t:"Office Building — Fit-Out", loc:"Dubai", d:"Replace with a short description of the scope, client type and outcome."}, ar:{t:"مبنى مكاتب — تشطيبات", loc:"دبي", d:"استبدل هذا بوصف مختصر للنطاق ونوع العميل والنتيجة."}},
+  { cat:"residential", sample:true, hue:[30,20], year:"—", en:{t:"Residential Villas", loc:"Dubai", d:"Replace with a short description of the scope, client type and outcome."}, ar:{t:"فلل سكنية", loc:"دبي", d:"استبدل هذا بوصف مختصر للنطاق ونوع العميل والنتيجة."}},
+  { cat:"industrial", sample:true, hue:[210,10], year:"—", en:{t:"Warehouse & Workshop", loc:"Jebel Ali", d:"Replace with a short description of the scope, client type and outcome."}, ar:{t:"مستودع وورشة", loc:"جبل علي", d:"استبدل هذا بوصف مختصر للنطاق ونوع العميل والنتيجة."}},
+  { cat:"infrastructure", sample:true, hue:[190,30], year:"—", en:{t:"Roads & Utilities Package", loc:"UAE", d:"Replace with a short description of the scope, client type and outcome."}, ar:{t:"حزمة طرق ومرافق", loc:"الإمارات", d:"استبدل هذا بوصف مختصر للنطاق ونوع العميل والنتيجة."}},
+  { cat:"commercial", sample:true, hue:[220,40], year:"—", en:{t:"Retail Showroom", loc:"Dubai", d:"Replace with a short description of the scope, client type and outcome."}, ar:{t:"صالة عرض تجارية", loc:"دبي", d:"استبدل هذا بوصف مختصر للنطاق ونوع العميل والنتيجة."}},
+  { cat:"residential", sample:true, hue:[200,25], year:"—", en:{t:"Residential Building G+4", loc:"Sharjah", d:"Replace with a short description of the scope, client type and outcome."}, ar:{t:"مبنى سكني أرضي + 4", loc:"الشارقة", d:"استبدل هذا بوصف مختصر للنطاق ونوع العميل والنتيجة."}},
+];
+
+/* ARABIC TRANSLATIONS for fixed text (English lives in the HTML above) */
+const AR = {
+  "tb.hours":"السبت – الخميس: 8:00 ص – 6:00 م","brand":"بالحصا للمشاريع",
+  "nav.home":"الرئيسية","nav.about":"من نحن","nav.services":"خدماتنا","nav.process":"آلية العمل","nav.projects":"المشاريع","nav.faq":"الأسئلة الشائعة","nav.contact":"اتصل بنا","nav.quote":"اطلب عرض سعر",
+  "hero.eye":"مقاولات · إنشاءات · تشطيبات","hero.h":"نبني الإمارات <em>بدقة</em> وأمان وثقة.",
+  "hero.p":"تقدم بالحصا للمشاريع ذ.م.م الأعمال المدنية والكهروميكانيكية والتشطيبات للعملاء التجاريين والسكنيين والصناعيين — في الموعد وضمن الميزانية ووفق المواصفات.",
+  "hero.c1":"اطلب عرض سعر","hero.c2":"شاهد أعمالنا",
+  "hs1.b":"الجودة","hs1.s":"أعمال منفذة وفق المواصفات المعتمدة","hs2.b":"السلامة","hs2.s":"ثقافة الصحة والسلامة أولاً في كل موقع","hs3.b":"الالتزام","hs3.s":"برامج زمنية وتقارير واضحة","hs4.b":"القيمة","hs4.s":"تسعير شفاف وتنافسي",
+  "ab.b":"مقاول مرخص في الإمارات","ab.s":"نخدم العملاء في مختلف الإمارات",
+  "about.eye":"من نحن","about.h":"شريك مقاولات تعتمد عليه من التصميم حتى التسليم",
+  "about.p":"نجمع بين فرق مواقع ذات خبرة ومعداتنا الخاصة وضوابط مشاريع صارمة لتنفيذ مشاريع تلبي توقعات عملائنا في الجودة والتكلفة والوقت.",
+  "c1":"مهندسون وفرق مواقع مؤهلة","c2":"أسطول خاص من المعدات والآليات","c3":"إجراءات صارمة للسلامة وضبط الجودة","c4":"تقارير تكاليف شفافة",
+  "tab1":"رسالتنا","tab2":"رؤيتنا","tab3":"قيمنا",
+  "tp1":"تنفيذ مشاريع إنشائية آمنة وعالية الجودة تخلق قيمة دائمة لعملائنا وموظفينا ومجتمعنا.",
+  "tp2":"أن نكون اسماً موثوقاً في قطاع المقاولات بالإمارات، معروفاً بالاعتمادية والنزاهة والتميز الهندسي.",
+  "tp3":"السلامة أولاً · النزاهة · الجودة · المسؤولية · روح الفريق.",
+  "svc.eye":"ماذا نقدم","svc.h":"خدمات مقاولات متكاملة","svc.p":"مقاول واحد مسؤول يغطي كل مراحل مشروعك.",
+  "pr.eye":"كيف نعمل","pr.h":"آلية واضحة من الاستفسار حتى التسليم",
+  "st1.t":"الاستشارة","st1.p":"نراجع المخططات والنطاق والمتطلبات ونزور الموقع.",
+  "st2.t":"العرض والتسعير","st2.p":"عرض سعر مفصل مع برنامج زمني وطريقة تنفيذ.",
+  "st3.t":"التنفيذ","st3.p":"التجهيز والتنفيذ وتقارير تقدم دورية مع رقابة كاملة على السلامة.",
+  "st4.t":"التسليم والدعم","st4.p":"الاختبار والملاحظات والمستندات والصيانة بعد التسليم.",
+  "pj.eye":"أعمالنا","pj.h":"مشاريع مختارة","pj.p":"اضغط على أي مشروع لعرض التفاصيل، أو صفِّ حسب القطاع.",
+  "f.all":"الكل","f.com":"تجاري","f.res":"سكني","f.ind":"صناعي","f.inf":"بنية تحتية",
+  "wy.eye":"لماذا نحن","wy.h":"ما يحصل عليه عملاؤنا",
+  "w1.t":"جهة مسؤولة واحدة","w1.p":"الأعمال المدنية والكهروميكانيكية والتشطيبات بعقد واحد.",
+  "w2.t":"معدات خاصة","w2.p":"اعتماد أقل على الاستئجار وتحكم أفضل في الجدول الزمني.",
+  "w3.t":"انضباط مالي","w3.p":"جداول كميات واضحة وتتبع للأوامر التغييرية وتقارير صادقة.",
+  "w4.t":"ثقافة السلامة","w4.p":"اجتماعات توعية وتصاريح عمل وتفتيش يومي.",
+  "band.h":"لديك مشروع؟","band.p":"أرسل لنا المخططات أو النطاق — وسنرد بعرض واضح.","band.c":"ابدأ التواصل",
+  "fq.eye":"الأسئلة الشائعة","fq.h":"أسئلة متكررة",
+  "q1":"في أي إمارات تعملون؟","a1":"مقرنا في دبي ونعمل على مشاريع في مختلف أنحاء الإمارات. تواصل معنا بموقع المشروع للتأكيد.",
+  "q2":"كيف أحصل على عرض سعر؟","a2":"استخدم النموذج أدناه أو راسلنا عبر واتساب بالمخططات أو جدول الكميات أو النطاق. عادةً نرتب زيارة للموقع قبل التسعير.",
+  "q3":"هل تتولون موافقات الجهات الحكومية؟","a3":"نعم — يمكننا تنسيق الموافقات المطلوبة مع الجهات المختصة ضمن نطاق المشروع.",
+  "q4":"هل تقدمون الصيانة بعد التسليم؟","a4":"نعم، نقدم دعم فترة ضمان العيوب وعقود الصيانة الدورية.",
+  "ct.eye":"اتصل بنا","ct.h":"لنتحدث عن مشروعك",
+  "ci.h":"بالحصا للمشاريع ذ.م.م","ci.p":"تواصل مع فريقنا مباشرة أو أرسل النموذج — نرد خلال يوم عمل واحد.",
+  "ci.addr":"العنوان","ci.addrv":"ص.ب 00000، دبي، الإمارات العربية المتحدة","ci.ph":"الهاتف","ci.em":"البريد الإلكتروني","ci.hr":"ساعات العمل",
+  "fm.name":"الاسم الكامل *","fm.company":"الشركة","fm.email":"البريد الإلكتروني *","fm.phone":"الهاتف","fm.service":"الخدمة المطلوبة","fm.msg":"تفاصيل المشروع *",
+  "fm.send":"إرسال بالبريد","fm.wa":"إرسال عبر واتساب",
+  "fm.note":"لا حاجة لخدمة نماذج مدفوعة: «إرسال بالبريد» يفتح تطبيق البريد والرسالة جاهزة، وواتساب يفتح محادثة بالتفاصيل.",
+  "ft.p":"مقاولات مدنية وكهروميكانيكية وتشطيبات في جميع أنحاء الإمارات.","ft.c":"الشركة","ft.city":"دبي، الإمارات","ft.rights":"بالحصا للمشاريع ذ.م.م. جميع الحقوق محفوظة.","ft.top":"العودة للأعلى ↑",
+  "s1.t":SERVICES[0].ar.t,"s2.t":SERVICES[1].ar.t,"s3.t":SERVICES[2].ar.t,"s4.t":SERVICES[3].ar.t,"s5.t":SERVICES[4].ar.t,"s6.t":SERVICES[5].ar.t,
+};
+const UI = {
+  en:{more:"Learn more",select:"Select a service",other:"Other",sample:"Sample",sector:"Sector",location:"Location",year:"Year",scope:"Scope",
+      cats:{commercial:"Commercial",residential:"Residential",industrial:"Industrial",infrastructure:"Infrastructure"},
+      req:"This field is required",bademail:"Enter a valid email",okmail:"Your email app is opening with the message ready to send.",okwa:"Opening WhatsApp…",fix:"Please complete the highlighted fields.",lang:"العربية"},
+  ar:{more:"اعرف المزيد",select:"اختر خدمة",other:"أخرى",sample:"نموذج",sector:"القطاع",location:"الموقع",year:"السنة",scope:"النطاق",
+      cats:{commercial:"تجاري",residential:"سكني",industrial:"صناعي",infrastructure:"بنية تحتية"},
+      req:"هذا الحقل مطلوب",bademail:"أدخل بريداً إلكترونياً صحيحاً",okmail:"يتم فتح تطبيق البريد والرسالة جاهزة للإرسال.",okwa:"جارٍ فتح واتساب…",fix:"يرجى إكمال الحقول المحددة.",lang:"English"}
+};
+
+/* =========================================================
+   APP LOGIC — no need to edit below this line
+   ========================================================= */
+let lang = "en";
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+const t = () => UI[lang];
+
+function projArt(p, big){
+  const [h, s] = p.hue;
+  const id = "g" + Math.random().toString(36).slice(2,7);
+  return `<svg class="art" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true" style="width:100%;height:100%">
+    <defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="hsl(${h} ${s}% 34%)"/><stop offset="1" stop-color="hsl(${h} ${s}% 14%)"/></linearGradient></defs>
+    <rect width="400" height="300" fill="url(#${id})"/>
+    <g fill="none" stroke="#e0b46a" stroke-opacity=".45" stroke-width="1.4">${
+      p.cat==="infrastructure" ? `<path d="M0 230 Q200 150 400 230"/><path d="M0 250 Q200 170 400 250"/><path d="M60 230 V280 M140 205 V280 M260 205 V280 M340 230 V280"/>`
+      : p.cat==="industrial" ? `<path d="M40 280 V170 L110 130 V170 L180 130 V170 L250 130 V280 Z"/><rect x="280" y="90" width="26" height="190"/><rect x="320" y="120" width="26" height="160"/>`
+      : p.cat==="residential" ? `<path d="M50 280 V170 L120 120 L190 170 V280"/><path d="M210 280 V150 L280 100 L350 150 V280"/><rect x="100" y="210" width="40" height="70"/><rect x="260" y="200" width="40" height="80"/>`
+      : `<rect x="70" y="80" width="90" height="200"/><rect x="180" y="40" width="110" height="240"/><rect x="310" y="130" width="60" height="150"/><path d="M180 90 H290 M180 140 H290 M180 190 H290 M70 130 H160 M70 180 H160"/>`
+    }</g></svg>`;
+}
+
+function renderServices(){
+  $("#svcGrid").innerHTML = SERVICES.map((s,i)=>`
+    <article class="svc reveal in" id="svc-${i}">
+      <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="${s.icon}"/></svg></div>
+      <h3>${s[lang].t}</h3><p>${s[lang].p}</p>
+      <button class="more" data-open-svc="${i}">${t().more} <span class="arrow">→</span></button>
+    </article>`).join("");
+  $("#footSvc").innerHTML = SERVICES.map(s=>`<li><a href="#services">${s[lang].t}</a></li>`).join("");
+  $("#f-service").innerHTML = `<option value="">${t().select}</option>` + SERVICES.map(s=>`<option>${s[lang].t}</option>`).join("") + `<option>${t().other}</option>`;
+}
+
+function renderProjects(){
+  const active = $(".filter.active")?.dataset.f || "all";
+  $("#projGrid").innerHTML = PROJECTS.map((p,i)=>`
+    <article class="proj ${active!=="all"&&p.cat!==active?"hide":""}" data-cat="${p.cat}" data-i="${i}" tabindex="0" role="button" aria-label="${p[lang].t}">
+      ${projArt(p)}
+      ${p.sample?`<span class="sample-tag">${t().sample}</span>`:""}
+      <div class="cap"><small>${t().cats[p.cat]} · ${p[lang].loc}</small><h3>${p[lang].t}</h3></div>
+    </article>`).join("");
+}
+
+/* ---- Modal ---- */
+const modal = $("#modal");
+function openModal({cat,title,desc,meta,art}){
+  $("#mCat").textContent = cat; $("#mTitle").textContent = title; $("#mDesc").textContent = desc;
+  $("#mMeta").innerHTML = meta.map(([k,v])=>`<div><b>${k}</b>${v}</div>`).join("");
+  $("#mArt").innerHTML = art; modal.classList.add("open"); document.body.style.overflow="hidden"; $("#mClose").focus();
+}
+function closeModal(){ modal.classList.remove("open"); document.body.style.overflow=""; }
+$("#mClose").onclick = closeModal;
+modal.addEventListener("click", e=>{ if(e.target===modal) closeModal(); });
+document.addEventListener("keydown", e=>{ if(e.key==="Escape"){ closeModal(); closeMenu(); } });
+
+document.addEventListener("click", e=>{
+  const sv = e.target.closest("[data-open-svc]");
+  if(sv){ const s = SERVICES[+sv.dataset.openSvc];
+    openModal({cat:UI[lang].more, title:s[lang].t, desc:s[lang].d, meta:[],
+      art:`<div style="position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(135deg,var(--navy-2),var(--navy))"><svg viewBox="0 0 24 24" style="width:72px;height:72px;stroke:var(--gold-2);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round"><path d="${s.icon}"/></svg></div>`});
+  }
+  const pj = e.target.closest(".proj");
+  if(pj) showProject(+pj.dataset.i);
+});
+document.addEventListener("keydown", e=>{ const pj = e.target.closest?.(".proj"); if(pj && (e.key==="Enter"||e.key===" ")){ e.preventDefault(); showProject(+pj.dataset.i);} });
+function showProject(i){ const p = PROJECTS[i];
+  openModal({cat:t().cats[p.cat], title:p[lang].t, desc:p[lang].d,
+    meta:[[t().sector,t().cats[p.cat]],[t().location,p[lang].loc],[t().year,p.year]], art:projArt(p)});
+}
+
+/* ---- Filters ---- */
+$("#filters").addEventListener("click", e=>{
+  const b = e.target.closest(".filter"); if(!b) return;
+  $$(".filter").forEach(x=>x.classList.toggle("active", x===b));
+  $$(".proj").forEach(p=>p.classList.toggle("hide", b.dataset.f!=="all" && p.dataset.cat!==b.dataset.f));
+});
+
+/* ---- About tabs ---- */
+$$(".tab").forEach(tab=>tab.addEventListener("click",()=>{
+  $$(".tab").forEach(x=>x.classList.toggle("active",x===tab));
+  $$(".tab-panel").forEach((p,i)=>p.classList.toggle("active", i===+tab.dataset.tab));
+}));
+
+/* ---- FAQ accordion ---- */
+$$(".faq-q").forEach(q=>q.addEventListener("click",()=>{
+  const item = q.parentElement, a = item.querySelector(".faq-a"), open = item.classList.contains("open");
+  $$(".faq-item").forEach(x=>{ x.classList.remove("open"); x.querySelector(".faq-a").style.maxHeight=null; });
+  if(!open){ item.classList.add("open"); a.style.maxHeight = a.scrollHeight + "px"; }
+}));
+
+/* ---- Menu (mobile + dropdown) ---- */
+const menu = $("#menu"), burger = $("#burger");
+function closeMenu(){ menu.classList.remove("open"); burger.classList.remove("active"); burger.setAttribute("aria-expanded","false"); $$(".has-dd").forEach(d=>d.classList.remove("open")); }
+burger.onclick = ()=>{ menu.style.setProperty('--menu-top', $("#header").getBoundingClientRect().bottom + 'px'); const o = menu.classList.toggle("open"); burger.classList.toggle("active",o); burger.setAttribute("aria-expanded",o); };
+$$(".has-dd > button").forEach(b=>b.addEventListener("click",e=>{ e.stopPropagation(); const li=b.parentElement; const o=li.classList.toggle("open"); b.setAttribute("aria-expanded",o); }));
+document.addEventListener("click", e=>{ if(!e.target.closest(".has-dd")) $$(".has-dd").forEach(d=>d.classList.remove("open")); });
+menu.addEventListener("click", e=>{
+  const a = e.target.closest("a"); if(!a) return;
+  if(a.dataset.svc!==undefined){ setTimeout(()=>{ const c=$("#svc-"+a.dataset.svc); c.animate([{boxShadow:"0 0 0 4px rgba(200,150,62,.6)"},{boxShadow:"0 0 0 0 rgba(200,150,62,0)"}],{duration:1400}); },500); }
+  closeMenu();
+});
+
+/* ---- Header shadow, back-to-top, active link ---- */
+const sections = $$("main section[id]");
+function onScroll(){
+  const y = window.scrollY;
+  $("#header").classList.toggle("scrolled", y>10);
+  $("#toTop").classList.toggle("show", y>600);
+  let cur = "home";
+  sections.forEach(s=>{ if(s.offsetTop - 120 <= y) cur = s.id; });
+  if(cur==="why") cur="projects";
+  $$(".menu a[href^='#']").forEach(a=>a.classList.toggle("active", a.getAttribute("href")==="#"+cur && !a.dataset.svc));
+}
+window.addEventListener("scroll", onScroll, {passive:true});
+$("#toTop").onclick = ()=>window.scrollTo({top:0,behavior:"smooth"});
+
+/* ---- Scroll reveal ---- */
+const io = "IntersectionObserver" in window ? new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target);} }),{threshold:.12}) : null;
+function observe(){ $$(".reveal:not(.in)").forEach(el=> io ? io.observe(el) : el.classList.add("in")); }
+
+/* ---- Toast ---- */
+function toast(msg){ const el=$("#toast"); el.textContent=msg; el.classList.add("show"); clearTimeout(el._t); el._t=setTimeout(()=>el.classList.remove("show"),3500); }
+
+/* ---- Contact form (free: mailto + WhatsApp) ---- */
+const form = $("#contactForm");
+function validate(){
+  let ok = true;
+  const rules = [["name",v=>v.trim()?"":t().req],["email",v=>!v.trim()?t().req:/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)?"":t().bademail],["message",v=>v.trim()?"":t().req]];
+  $$(".field",form).forEach(f=>{f.classList.remove("err"); $(".msg",f).textContent="";});
+  rules.forEach(([n,fn])=>{ const el=form.elements[n], m=fn(el.value); if(m){ ok=false; const f=el.closest(".field"); f.classList.add("err"); $(".msg",f).textContent=m; } });
+  if(!ok){ toast(t().fix); $(".field.err input, .field.err textarea",form)?.focus(); }
+  return ok;
+}
+function body(){ const f=form.elements;
+  return `Name: ${f.name.value}\nCompany: ${f.company.value}\nEmail: ${f.email.value}\nPhone: ${f.phone.value}\nService: ${f.service.value}\n\n${f.message.value}`; }
+form.addEventListener("submit", e=>{ e.preventDefault(); if(!validate()) return;
+  const subj = `Website enquiry – ${form.elements.service.value || "General"}`;
+  window.location.href = `mailto:${SETTINGS.email}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body())}`;
+  toast(t().okmail);
+});
+$("#waBtn").onclick = ()=>{ if(!validate()) return;
+  window.open(`https://wa.me/${SETTINGS.whatsapp}?text=${encodeURIComponent(body())}`,"_blank","noopener"); toast(t().okwa); };
+
+/* ---- Language switch (EN / AR, with right-to-left layout) ---- */
+const EN = {};
+$$("[data-i18n]").forEach(el=>{ EN[el.dataset.i18n] ??= el.textContent; });
+$$("[data-i18n-html]").forEach(el=>{ EN[el.dataset.i18nHtml] ??= el.innerHTML; });
+function setLang(l){
+  lang = l;
+  document.documentElement.lang = l; document.documentElement.dir = l==="ar"?"rtl":"ltr";
+  const dict = l==="ar" ? AR : EN;
+  $$("[data-i18n]").forEach(el=>{ const v=dict[el.dataset.i18n]; if(v!==undefined) el.textContent=v; });
+  $$("[data-i18n-html]").forEach(el=>{ const v=dict[el.dataset.i18nHtml]; if(v!==undefined) el.innerHTML=v; });
+  $("#langBtn").textContent = t().lang;
+  renderServices(); renderProjects(); observe();
+  try{ localStorage.setItem("lang", l); }catch(_){}
+}
+$("#langBtn").onclick = ()=>setLang(lang==="en"?"ar":"en");
+
+/* ---- Init ---- */
+$("#year").textContent = new Date().getFullYear();
+let saved = "en"; try{ saved = localStorage.getItem("lang") || "en"; }catch(_){}
+setLang(saved);
+onScroll();
+</script>
+</body>
+</html>
